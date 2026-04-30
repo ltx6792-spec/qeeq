@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="第一次用 QEEQ 租車？本指南涵蓋預訂流程、必備證件、AXA 保險方案、QEEQ 獨家降價監測功能，讓新手也能輕鬆搞定租車！">
+<meta property="og:title" content="QEEQ 新手租車完全指南｜從預訂到還車，一站搞定">
+<meta property="og:description" content="第一次租車不怕！QEEQ 新手指南帶你了解預訂、證件、保險、取還車全流程，還有獨家降價提醒功能。">
+<meta property="og:type" content="website">
+<title>QEEQ 新手租車完全指南｜從預訂到還車，一站搞定</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --glass: rgba(255,255,255,0.65);
+    --glass-border: rgba(255,255,255,0.88);
+    --glass-shadow: rgba(31,38,135,0.08);
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --text-primary: #1a1a2e;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --card-radius: 20px;
+    --nav-h: 58px;
+    --sidebar-w: 228px;
+    --ease: cubic-bezier(0.4,0,0.2,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Noto Sans TC',-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif;
+    background:linear-gradient(135deg,#e8edf5 0%,#f0f2f8 45%,#e4eaf3 100%);
+    min-height:100vh;color:var(--text-primary);overflow-x:hidden;
+  }
+  body::before{
+    content:'';position:fixed;width:600px;height:600px;border-radius:50%;
+    background:radial-gradient(circle,rgba(147,197,253,0.18) 0%,transparent 70%);
+    top:-180px;left:-180px;pointer-events:none;z-index:0;
+  }
+  body::after{
+    content:'';position:fixed;width:440px;height:440px;border-radius:50%;
+    background:radial-gradient(circle,rgba(196,181,253,0.12) 0%,transparent 70%);
+    bottom:-100px;right:-100px;pointer-events:none;z-index:0;
+  }
+
+  /* ── NAV ── */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    height:var(--nav-h);
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(20px) saturate(180%);
+    -webkit-backdrop-filter:blur(20px) saturate(180%);
+    border-bottom:1px solid rgba(255,255,255,0.9);
+    box-shadow:0 1px 20px rgba(31,38,135,0.07);
+    display:flex;align-items:center;
+  }
+  .nav-inner{
+    width:100%;max-width:1440px;margin:0 auto;
+    padding:0 24px;
+    display:flex;align-items:center;gap:16px;
+    min-width:0;
+  }
+  .nav-logo{
+    font-size:17px;font-weight:700;letter-spacing:-.4px;
+    color:var(--accent);text-decoration:none;white-space:nowrap;
+    display:flex;align-items:center;gap:5px;flex-shrink:0;
+  }
+  .nav-logo span{color:var(--text-primary);font-weight:300}
+  .nav-links{
+    display:flex;align-items:center;gap:2px;
+    overflow-x:auto;flex:1;min-width:0;
+    scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{
+    display:inline-flex;align-items:center;gap:5px;
+    padding:6px 12px;border-radius:20px;
+    font-size:13px;font-weight:400;color:var(--text-secondary);
+    text-decoration:none;white-space:nowrap;flex-shrink:0;
+    transition:all .2s var(--ease);
+  }
+  .nav-links a .ni{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:16px;height:16px;font-size:13px;line-height:1;flex-shrink:0;
+  }
+  .nav-links a:hover{background:var(--accent-light);color:var(--accent)}
+
+  /* ── LAYOUT ── */
+  .page-wrapper{
+    max-width:1440px;margin:0 auto;
+    padding:calc(var(--nav-h)+32px) 24px 60px;
+    display:flex;gap:24px;position:relative;z-index:1;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar{
+    width:var(--sidebar-w);flex-shrink:0;
+    position:sticky;top:calc(var(--nav-h)+16px);
+    align-self:flex-start;
+    height:calc(100vh - var(--nav-h) - 32px);
+    overflow-y:auto;
+  }
+  .sidebar::-webkit-scrollbar{width:0}
+  .sidebar-panel{
+    background:var(--glass);
+    backdrop-filter:blur(24px) saturate(160%);
+    -webkit-backdrop-filter:blur(24px) saturate(160%);
+    border:1px solid var(--glass-border);
+    border-radius:var(--card-radius);
+    box-shadow:0 8px 32px var(--glass-shadow);
+    padding:22px 0;overflow:hidden;
+  }
+  .sidebar-title{
+    font-size:10.5px;font-weight:600;letter-spacing:1.2px;
+    color:var(--text-muted);text-transform:uppercase;
+    padding:0 18px 12px;
+  }
+  .sidebar-nav a{
+    display:flex;align-items:center;gap:9px;
+    padding:10px 18px;
+    font-size:13px;font-weight:400;color:var(--text-secondary);
+    text-decoration:none;
+    border-left:3px solid transparent;
+    transition:all .2s var(--ease);
+  }
+  .sidebar-nav a .sicon{font-size:14px;width:16px;text-align:center}
+  .sidebar-nav a:hover,.sidebar-nav a.active{
+    color:var(--accent);background:rgba(37,99,235,0.06);
+    border-left-color:var(--accent);
+  }
+  .sdiv{height:1px;background:rgba(0,0,0,0.06);margin:8px 18px}
+
+  /* ── MAIN ── */
+  .main{flex:1;min-width:0}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(135deg,#1d4ed8 0%,#3b82f6 55%,#60a5fa 100%);
+    border-radius:24px;padding:48px 44px;
+    margin-bottom:40px;color:#fff;
+    position:relative;overflow:hidden;
+    box-shadow:0 20px 60px rgba(37,99,235,0.26);
+  }
+  .hero::before{
+    content:'';position:absolute;top:-80px;right:-80px;
+    width:340px;height:340px;border-radius:50%;
+    background:rgba(255,255,255,0.08);
+  }
+  .hero-badge{
+    display:inline-block;
+    background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);
+    border-radius:20px;padding:4px 14px;
+    font-size:12px;font-weight:500;letter-spacing:.4px;margin-bottom:16px;
+    backdrop-filter:blur(10px);
+  }
+  .hero h1{
+    font-size:clamp(24px,3.2vw,40px);font-weight:700;
+    line-height:1.22;margin-bottom:12px;letter-spacing:-.4px;
+  }
+  .hero p{
+    font-size:15px;font-weight:300;opacity:.9;
+    line-height:1.75;max-width:500px;margin-bottom:26px;
+  }
+  .hero-steps{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-step{
+    background:rgba(255,255,255,0.16);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.26);
+    border-radius:14px;padding:12px 18px;
+    display:flex;align-items:center;gap:10px;min-width:150px;
+  }
+  .step-num{
+    width:26px;height:26px;border-radius:50%;
+    background:rgba(255,255,255,0.26);
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;font-weight:800;flex-shrink:0;
+  }
+  .step-text{font-size:13px;font-weight:500}
+
+  /* Section heading */
+  .section-heading{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+  .section-heading h2{font-size:19px;font-weight:600;letter-spacing:-.3px}
+  .section-badge{
+    background:var(--accent-light);color:var(--accent);
+    border-radius:20px;padding:3px 11px;
+    font-size:11.5px;font-weight:600;
+  }
+
+  /* Cards grid */
+  .cards-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(268px,1fr));
+    gap:18px;margin-bottom:44px;
+  }
+  .card{
+    background:var(--glass);
+    backdrop-filter:blur(20px) saturate(160%);
+    -webkit-backdrop-filter:blur(20px) saturate(160%);
+    border:1px solid var(--glass-border);
+    border-radius:var(--card-radius);
+    box-shadow:0 4px 20px var(--glass-shadow);
+    overflow:hidden;cursor:pointer;
+    text-decoration:none;color:inherit;
+    display:flex;flex-direction:column;
+    transition:transform .32s var(--ease),box-shadow .32s var(--ease);
+  }
+  .card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 48px rgba(31,38,135,0.15),0 4px 16px rgba(37,99,235,0.08);
+  }
+  .card-cover{
+    height:152px;position:relative;overflow:hidden;
+    background:linear-gradient(135deg,#e0e7ff,#bfdbfe);
+  }
+  /* Use SVG-based icons instead of emoji in covers to avoid rendering issues */
+  .card-cover-icon{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .4s var(--ease);
+  }
+  .card-cover-icon svg{width:64px;height:64px}
+  .card:hover .card-cover-icon{transform:scale(1.1)}
+  .card-tag{
+    position:absolute;top:10px;left:10px;
+    background:rgba(255,255,255,0.84);
+    backdrop-filter:blur(8px);border-radius:10px;padding:3px 9px;
+    font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.3px;
+  }
+  .card-body{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column;gap:7px}
+  .card-title{font-size:15.5px;font-weight:600;line-height:1.38;letter-spacing:-.2px}
+  .card-desc{font-size:13px;color:var(--text-secondary);line-height:1.68;flex:1}
+  .card-cta{
+    margin-top:10px;font-size:12.5px;font-weight:500;color:var(--accent);
+    display:flex;align-items:center;gap:4px;transition:gap .2s;
+  }
+  .card:hover .card-cta{gap:8px}
+
+  /* Info box */
+  .info-box{
+    background:var(--glass);
+    backdrop-filter:blur(20px) saturate(160%);
+    -webkit-backdrop-filter:blur(20px) saturate(160%);
+    border:1px solid var(--glass-border);
+    border-radius:var(--card-radius);
+    box-shadow:0 4px 20px var(--glass-shadow);
+    padding:26px 30px;margin-bottom:44px;
+  }
+  .info-box h3{font-size:15.5px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:7px}
+  .info-table{width:100%;border-collapse:collapse}
+  .info-table th{
+    text-align:left;font-size:11.5px;font-weight:600;
+    color:var(--text-muted);letter-spacing:.8px;text-transform:uppercase;
+    padding:0 0 9px;border-bottom:1px solid rgba(0,0,0,0.07);
+  }
+  .info-table td{
+    padding:13px 0;font-size:13.5px;vertical-align:top;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+  }
+  .info-table td:first-child{font-weight:600;color:var(--text-primary);width:36%;padding-right:18px}
+  .info-table td:last-child{color:var(--text-secondary)}
+  .info-table tr:last-child td{border-bottom:none}
+  .tip-pill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(37,99,235,0.07);border:1px solid rgba(37,99,235,0.15);
+    border-radius:10px;padding:7px 13px;
+    font-size:12.5px;color:var(--accent);margin-top:14px;
+  }
+
+  /* Checklist */
+  .checklist{display:flex;flex-direction:column;gap:10px}
+  .checklist-item{
+    display:flex;align-items:flex-start;gap:11px;
+    background:rgba(255,255,255,0.52);border:1px solid rgba(255,255,255,0.82);
+    border-radius:13px;padding:13px 16px;transition:background .2s;
+  }
+  .checklist-item:hover{background:rgba(255,255,255,0.78)}
+  .check-icon{
+    width:20px;height:20px;border-radius:50%;
+    background:#dcfce7;border:1.5px solid #86efac;
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;flex-shrink:0;margin-top:1px;
+  }
+  .check-label{font-size:13.5px;font-weight:500}
+  .check-sub{font-size:12px;color:var(--text-muted);margin-top:2px}
+
+  /* ── INSURANCE CARDS ── */
+  .ins-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(288px,1fr));
+    gap:16px;margin-bottom:44px;
+  }
+  .ins-card{
+    background:var(--glass);
+    backdrop-filter:blur(20px) saturate(160%);
+    -webkit-backdrop-filter:blur(20px) saturate(160%);
+    border:1px solid var(--glass-border);
+    border-radius:18px;
+    box-shadow:0 4px 20px var(--glass-shadow);
+    padding:20px 22px;
+    transition:transform .28s var(--ease),box-shadow .28s var(--ease);
+  }
+  .ins-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 14px 38px rgba(31,38,135,0.13);
+  }
+  .ins-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .ins-name{font-size:14.5px;font-weight:700}
+  .ins-badge{font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap}
+  .ins-badge.included{background:#dcfce7;color:#16a34a}
+  .ins-badge.optional{background:#dbeafe;color:#1d4ed8}
+  .ins-badge.premium{background:#fef9c3;color:#b45309}
+  .ins-provider{font-size:11px;color:var(--text-muted);margin-bottom:9px;display:flex;align-items:center;gap:4px}
+  .ins-desc{font-size:13px;color:var(--text-secondary);line-height:1.65}
+  .ins-list{margin-top:10px;padding-left:0;list-style:none}
+  .ins-list li{
+    font-size:12.5px;color:var(--text-secondary);
+    padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.04);
+    display:flex;gap:7px;align-items:flex-start;
+  }
+  .ins-list li:last-child{border-bottom:none}
+  .ins-list li::before{content:'✓';color:#16a34a;font-weight:700;flex-shrink:0}
+
+  /* ── PRICE MONITOR ── */
+  .price-monitor-box{
+    background:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 60%,#3b82f6 100%);
+    border-radius:22px;padding:34px 38px;
+    margin-bottom:44px;color:#fff;
+    position:relative;overflow:hidden;
+    box-shadow:0 16px 48px rgba(37,99,235,0.28);
+  }
+  .price-monitor-box::before{
+    content:'';position:absolute;top:-60px;right:-60px;
+    width:260px;height:260px;border-radius:50%;
+    background:rgba(255,255,255,0.06);
+  }
+  .pm-label{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,0.16);border:1px solid rgba(255,255,255,0.26);
+    border-radius:20px;padding:4px 12px;
+    font-size:11px;font-weight:600;margin-bottom:13px;
+  }
+  .pm-title{font-size:21px;font-weight:700;margin-bottom:8px}
+  .pm-sub{font-size:14px;opacity:.9;line-height:1.65;max-width:480px;margin-bottom:22px}
+  .pm-steps{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+    gap:12px;
+  }
+  .pm-step{
+    background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.2);
+    border-radius:14px;padding:13px 15px;backdrop-filter:blur(8px);
+  }
+  .pm-step-num{
+    width:24px;height:24px;border-radius:50%;
+    background:rgba(255,255,255,0.24);
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;font-weight:800;margin-bottom:7px;
+  }
+  .pm-step-title{font-size:13px;font-weight:600;margin-bottom:4px}
+  .pm-step-desc{font-size:11.5px;opacity:.84;line-height:1.5}
+
+  /* ── TIMELINE ── */
+  .timeline{position:relative;padding-left:34px;margin-bottom:44px}
+  .timeline::before{
+    content:'';position:absolute;
+    left:9px;top:10px;bottom:10px;width:2px;
+    background:linear-gradient(to bottom,var(--accent),rgba(37,99,235,0.12));
+    border-radius:2px;
+  }
+  .tl-item{
+    position:relative;
+    background:var(--glass);
+    backdrop-filter:blur(20px) saturate(160%);
+    -webkit-backdrop-filter:blur(20px) saturate(160%);
+    border:1px solid var(--glass-border);
+    border-radius:16px;
+    box-shadow:0 4px 16px var(--glass-shadow);
+    padding:18px 22px;margin-bottom:14px;
+    transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+  }
+  .tl-item:hover{
+    transform:translateX(5px);
+    box-shadow:0 8px 28px rgba(31,38,135,0.12);
+  }
+  .tl-item::before{
+    content:'';position:absolute;
+    left:-30px;top:20px;
+    width:13px;height:13px;border-radius:50%;
+    background:var(--accent);
+    border:3px solid #fff;
+    box-shadow:0 0 0 2px var(--accent);
+  }
+  .tl-scene{
+    font-size:11.5px;font-weight:700;color:var(--accent);
+    letter-spacing:.4px;margin-bottom:4px;
+    display:flex;align-items:center;gap:5px;
+  }
+  .tl-title{font-size:14.5px;font-weight:600;margin-bottom:5px}
+  .tl-desc{font-size:13px;color:var(--text-secondary);line-height:1.68}
+
+  /* ── MODAL ── */
+  .modal-overlay{
+    position:fixed;inset:0;z-index:2000;
+    background:rgba(15,23,42,0.45);backdrop-filter:blur(8px);
+    display:none;align-items:center;justify-content:center;padding:20px;
+  }
+  .modal-overlay.open{display:flex}
+  .modal{
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(32px) saturate(200%);
+    -webkit-backdrop-filter:blur(32px) saturate(200%);
+    border:1px solid rgba(255,255,255,0.95);
+    border-radius:24px;
+    box-shadow:0 32px 80px rgba(15,23,42,0.2);
+    max-width:580px;width:100%;max-height:86vh;overflow-y:auto;
+    animation:modalIn .26s var(--ease);
+  }
+  @keyframes modalIn{from{opacity:0;transform:scale(.94) translateY(18px)}to{opacity:1;transform:scale(1) translateY(0)}}
+  .modal-header{
+    position:sticky;top:0;background:rgba(255,255,255,0.87);backdrop-filter:blur(20px);
+    border-radius:24px 24px 0 0;padding:22px 26px 18px;
+    border-bottom:1px solid rgba(0,0,0,0.07);
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .modal-title{font-size:17px;font-weight:700}
+  .modal-close{
+    width:30px;height:30px;border-radius:50%;
+    background:rgba(0,0,0,0.07);border:none;cursor:pointer;
+    font-size:15px;display:flex;align-items:center;justify-content:center;
+    transition:background .2s;
+  }
+  .modal-close:hover{background:rgba(0,0,0,0.14)}
+  .modal-body{padding:24px 26px}
+  .modal-body h4{font-size:14.5px;font-weight:600;margin:0 0 7px}
+  .modal-body p{font-size:13.5px;color:var(--text-secondary);line-height:1.72;margin-bottom:14px}
+  .modal-body ul{padding-left:16px;margin-bottom:14px}
+  .modal-body li{font-size:13.5px;color:var(--text-secondary);line-height:1.72;margin-bottom:5px}
+  .modal-chip{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--accent);color:#fff;
+    border-radius:9px;padding:5px 13px;
+    font-size:12.5px;font-weight:500;margin-bottom:13px;
+  }
+
+  /* ── FOOTER ── */
+  footer{
+    background:rgba(255,255,255,0.65);
+    backdrop-filter:blur(20px) saturate(160%);
+    -webkit-backdrop-filter:blur(20px) saturate(160%);
+    border-top:1px solid rgba(255,255,255,0.88);
+    margin-top:40px;padding:48px 0 30px;position:relative;z-index:1;
+  }
+  .footer-inner{
+    max-width:1440px;margin:0 auto;padding:0 24px;
+    display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;
+  }
+  .footer-brand h3{font-size:17px;font-weight:700;color:var(--accent);margin-bottom:9px}
+  .footer-brand p{font-size:13px;color:var(--text-secondary);line-height:1.72;max-width:270px}
+  .footer-qr{
+    margin-top:16px;width:74px;height:74px;border-radius:11px;
+    background:linear-gradient(135deg,#dbeafe,#e0e7ff);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;border:1px solid rgba(255,255,255,0.9);
+    box-shadow:0 4px 14px rgba(31,38,135,0.08);
+  }
+  .footer-col h4{font-size:12.5px;font-weight:600;color:var(--text-primary);margin-bottom:12px;letter-spacing:.4px}
+  .footer-col a{
+    display:block;font-size:12.5px;color:var(--text-secondary);
+    text-decoration:none;margin-bottom:8px;transition:color .2s;
+  }
+  .footer-col a:hover{color:var(--accent)}
+  .footer-bottom{
+    max-width:1440px;margin:36px auto 0;padding:22px 24px 0;
+    border-top:1px solid rgba(0,0,0,0.07);
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:12px;color:var(--text-muted);
+  }
+
+  /* ── REVEAL ── */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:1024px){
+    .sidebar{display:none}
+    .footer-inner{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:640px){
+    .nav-links{display:none}
+    .page-wrapper{padding:calc(var(--nav-h)+18px) 14px 36px}
+    .hero{padding:28px 20px}
+    .hero-steps{flex-direction:column}
+    .hero-step{min-width:unset}
+    .price-monitor-box{padding:26px 20px}
+    .footer-inner{grid-template-columns:1fr}
+    .footer-bottom{flex-direction:column;gap:6px;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="qeeq-first-time-rental-guide.html">QEEQ <span>租車指南</span></a>
+    <div class="nav-links">
+      <a href="https://www.qeeq.com" target="_blank" rel="noopener">
+        <span class="ni">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14"><circle cx="10" cy="10" r="8.5" stroke="#6b7280" stroke-width="1.5"/><path d="M10 1.5C10 1.5 7 5 7 10s3 8.5 3 8.5M10 1.5C10 1.5 13 5 13 10s-3 8.5-3 8.5M1.5 10h17" stroke="#6b7280" stroke-width="1.5"/></svg>
+        </span>
+        QEEQ 官網
+      </a>
+      <a href="https://www.qeeq.com/car-rental" target="_blank" rel="noopener">
+        <span class="ni">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14"><rect x="1.5" y="7" width="17" height="9" rx="2.5" stroke="#6b7280" stroke-width="1.5"/><path d="M4 7l2-4.5h8L16 7" stroke="#6b7280" stroke-width="1.5"/><circle cx="5.5" cy="14" r="1.5" fill="#6b7280"/><circle cx="14.5" cy="14" r="1.5" fill="#6b7280"/></svg>
+        </span>
+        立即租車
+      </a>
+      <a href="https://tw.qeeq.com/best-car-rental/jp-license" target="_blank" rel="noopener">
+        <span class="ni">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14"><circle cx="10" cy="10" r="8.5" stroke="#6b7280" stroke-width="1.5"/><path d="M10 5v10M5 10h10" stroke="#6b7280" stroke-width="1.5"/></svg>
+        </span>
+        日本租車
+      </a>
+      <a href="https://www.qeeq.com/help" target="_blank" rel="noopener">
+        <span class="ni">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM10 13v-1.5c2-1 2.5-2 2.5-3A2.5 2.5 0 007.5 8" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"/><circle cx="10" cy="15.5" r=".8" fill="#6b7280"/></svg>
+        </span>
+        幫助中心
+      </a>
+      <a href="https://www.qeeq.com/app" target="_blank" rel="noopener">
+        <span class="ni">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14"><rect x="5" y="1.5" width="10" height="17" rx="2" stroke="#6b7280" stroke-width="1.5"/><circle cx="10" cy="15.5" r=".9" fill="#6b7280"/></svg>
+        </span>
+        下載 App
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-panel">
+      <div class="sidebar-title">內容導航</div>
+      <nav class="sidebar-nav">
+        <a href="#booking" class="active"><span class="sicon"><svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5198" height="16" width="16"><path d="M845.2608 152.4224H181.1968c-60.8768 0-110.2336 49.3568-110.2336 110.2336v498.7392c0 60.8768 49.3568 110.2336 110.2336 110.2336h664.064c60.8768 0 110.2336-49.3568 110.2336-110.2336V262.656c0-60.8768-49.3568-110.2336-110.2336-110.2336z m-284.16 552.448c0 23.8592-19.3536 43.1616-43.1616 43.1616h-285.184c-23.8592 0-43.1616-19.3536-43.1616-43.1616v-69.12c0-62.7712 31.3344-118.3232 79.104-151.9616-17.7152-22.8352-28.3648-51.4048-28.3648-82.4832 0-74.4448 60.5696-135.0144 135.0144-135.0144s135.0144 60.5696 135.0144 135.0144c0 31.0784-10.6496 59.648-28.3648 82.4832 47.7696 33.6384 79.104 89.1904 79.104 151.9616v69.12z m222.7712-0.9216h-92.3136c-23.8592 0-43.1616-19.3536-43.1616-43.1616s19.3536-43.1616 43.1616-43.1616h92.3136a43.16672 43.16672 0 0 1 0 86.3232z m0-148.7872h-137.7792a43.16672 43.16672 0 0 1 0-86.3232h137.7792c23.8592 0 43.1616 19.3536 43.1616 43.1616 0 23.8592-19.3024 43.1616-43.1616 43.1616z m0-154.3168h-137.7792a43.16672 43.16672 0 0 1 0-86.3232h137.7792c23.8592 0 43.1616 19.3536 43.1616 43.1616 0 23.8592-19.3024 43.1616-43.1616 43.1616z" fill="#FF8E12" p-id="5199"></path><path d="M375.3472 536.3712c-54.8352 0-99.4304 44.5952-99.4304 99.4304v25.9584h198.8608v-25.9584c0-54.8352-44.5952-99.4304-99.4304-99.4304z" fill="#FCA315" p-id="5200"></path><path d="M375.3472 449.9968c26.8288 0 48.6912-21.8624 48.6912-48.6912s-21.8624-48.6912-48.6912-48.6912-48.6912 21.8624-48.6912 48.6912c0 26.88 21.8624 48.6912 48.6912 48.6912z" fill="#FF8E12" p-id="5201"></path><path d="M845.2608 152.4224H181.1968c-60.8768 0-110.2336 49.3568-110.2336 110.2336v498.7392c0 60.8768 49.3568 110.2336 110.2336 110.2336h298.24c107.7248-31.3344 203.8272-89.856 280.5248-167.6288h-68.4032a43.16672 43.16672 0 0 1 0-86.3232h92.3136c14.3872 0 27.0336 7.0656 34.9184 17.8176 80.4864-108.1344 128.1536-242.176 128.1536-387.328 0-9.9328-0.256-19.8144-0.7168-29.6448-17.0496-38.912-55.808-66.0992-100.9664-66.0992z m-284.16 552.448c0 23.8592-19.3536 43.1616-43.1616 43.1616h-285.184c-23.8592 0-43.1616-19.3536-43.1616-43.1616v-69.12c0-62.7712 31.3344-118.3232 79.104-151.9616-17.7152-22.8352-28.3648-51.4048-28.3648-82.4832 0-74.4448 60.5696-135.0144 135.0144-135.0144s135.0144 60.5696 135.0144 135.0144c0 31.0784-10.6496 59.648-28.3648 82.4832 47.7696 33.6384 79.104 89.1904 79.104 151.9616v69.12z m222.7712-149.7088h-137.7792a43.16672 43.16672 0 0 1 0-86.3232h137.7792c23.8592 0 43.1616 19.3536 43.1616 43.1616 0 23.8592-19.3024 43.1616-43.1616 43.1616z m0-154.3168h-137.7792c-23.8592 0-43.1616-19.3536-43.1616-43.1616s19.3536-43.1616 43.1616-43.1616h137.7792a43.16672 43.16672 0 0 1 0 86.3232z" fill="#FCA315" p-id="5202"></path><path d="M70.9632 262.656v402.3808a649.54368 649.54368 0 0 0 118.5792-1.8944v-27.3408c0-62.7712 31.3344-118.3232 79.104-151.9616-17.7152-22.8352-28.3648-51.4048-28.3648-82.4832 0-74.4448 60.5696-135.0144 135.0144-135.0144s135.0144 60.5696 135.0144 135.0144c0 31.0784-10.6496 59.648-28.3648 82.4832 16.3328 11.4688 30.6688 25.6 42.5472 41.5744 45.1584-36.0448 85.4528-77.9776 119.6032-124.6208-22.9376-1.024-41.216-19.8656-41.216-43.0592 0-23.8592 19.3536-43.1616 43.1616-43.1616h51.456c26.0608-50.5344 45.6192-104.96 57.7024-162.0992H181.1968c-60.8768-0.0512-110.2336 49.3056-110.2336 110.1824z" fill="#FCB138" p-id="5203"></path><path d="M275.9168 635.7504v12.1856a646.1952 646.1952 0 0 0 177.7152-73.2672c-18.2272-23.296-46.4896-38.3488-78.2848-38.3488-54.8352 0.0512-99.4304 44.6464-99.4304 99.4304z" fill="#FCB138" p-id="5204"></path><path d="M70.9632 262.656v164.352a644.5568 644.5568 0 0 0 173.1584-56.9344c14.1312-59.392 67.5328-103.7824 131.2256-103.7824 6.3488 0 12.544 0.6144 18.6368 1.4336 37.6832-34.3552 71.2704-73.0624 100.0448-115.3536h-312.832c-60.8768 0.0512-110.2336 49.408-110.2336 110.2848z" fill="#FFC65E" p-id="5205"></path></svg></span> 如何預訂</a>
+        <a href="#documents"><span class="sicon">🪪</span> 租車證件</a>
+        <a href="#fees"><span class="sicon">💰</span> 費用說明</a>
+        <a href="#insurance"><span class="sicon">🛡️</span> 保險選擇</a>
+        <div class="sdiv"></div>
+        <a href="#pricemonitor"><span class="sicon">📉</span> 降價監測</a>
+        <a href="#pickup"><span class="sicon">🔑</span> 如何取車</a>
+        <a href="#onroad"><span class="sicon">🛣️</span> 路上問題</a>
+        <a href="#return"><span class="sicon">↩️</span> 如何還車</a>
+        <div class="sdiv"></div>
+        <a href="#service"><span class="sicon">⭐</span> QEEQ 保障</a>
+        <a href="#tips"><span class="sicon">💡</span> 新手貼士</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- Hero -->
+    <div class="hero reveal">
+      <div class="hero-badge">🚗 新手租車完全指南</div>
+      <h1>第一次用 QEEQ 租車<br>3 步輕鬆搞定</h1>
+      <p>QEEQ 匯聚全球 1000+ 優質租車公司，覆蓋 200+ 國家地區，價格透明、證件簡單、免費取消，還有業界唯一的降價自動重訂功能，讓每一次出行都安心無憂。</p>
+      <div class="hero-steps">
+        <div class="hero-step"><div class="step-num">1</div><div class="step-text">選擇車型 &amp; 公司</div></div>
+        <div class="hero-step"><div class="step-num">2</div><div class="step-text">填寫駕駛員資訊</div></div>
+        <div class="hero-step"><div class="step-num">3</div><div class="step-text">送出訂單即完成</div></div>
+      </div>
+    </div>
+
+    <!-- 如何預訂 -->
+    <div id="booking" class="section-heading reveal">
+      <h2>📋 如何預訂</h2>
+      <span class="section-badge">線上預訂</span>
+    </div>
+    <div class="cards-grid">
+      <a class="card reveal" onclick="openModal('booking1')">
+        <div class="card-cover" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)">
+          <div class="card-cover-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="28" fill="#bfdbfe"/><circle cx="32" cy="32" r="12" stroke="#2563eb" stroke-width="3"/><line x1="40.5" y1="40.5" x2="52" y2="52" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="card-tag">第一步</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">搜尋 &amp; 篩選車輛</div>
+          <div class="card-desc">輸入取還車地點與日期，同步比較多家租車公司報價，依車型、評分、價格一鍵篩選，幾分鐘就能找到最划算的座駕。</div>
+          <div class="card-cta">了解更多 →</div>
+        </div>
+      </a>
+      <a class="card reveal" onclick="openModal('booking2')">
+        <div class="card-cover" style="background:linear-gradient(135deg,#e0e7ff,#c7d2fe)">
+          <div class="card-cover-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="10" width="40" height="46" rx="5" fill="#c7d2fe"/><rect x="20" y="22" width="24" height="3" rx="1.5" fill="#4f46e5"/><rect x="20" y="30" width="18" height="3" rx="1.5" fill="#6366f1"/><rect x="20" y="38" width="12" height="3" rx="1.5" fill="#818cf8"/><circle cx="32" cy="14" r="4" fill="#4f46e5"/></svg>
+          </div>
+          <span class="card-tag">第二步</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">填寫駕駛員資訊</div>
+          <div class="card-desc">填寫主駕駛姓名、聯絡方式及駕照資訊。多人輪駕時逐一填寫，資訊須與證件完全一致，避免取車時遇到麻煩。</div>
+          <div class="card-cta">了解更多 →</div>
+        </div>
+      </a>
+      <a class="card reveal" onclick="openModal('booking3')">
+        <div class="card-cover" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0)">
+          <div class="card-cover-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="26" fill="#bbf7d0"/><polyline points="20,33 28,41 44,24" stroke="#16a34a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="card-tag">第三步</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">送出訂單 &amp; 確認</div>
+          <div class="card-desc">付款完成後立即收到確認信，含取車憑證與車行聯絡方式。大部分車行支援免費取消，行程臨時有變也不怕！</div>
+          <div class="card-cta">了解更多 →</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 租車證件 -->
+    <div id="documents" class="section-heading reveal">
+      <h2>🪪 租車證件</h2>
+      <span class="section-badge">「兩證一卡」</span>
+    </div>
+    <div class="info-box reveal">
+      <h3>🪪 必備證件清單</h3>
+      <div class="checklist">
+        <div class="checklist-item">
+          <div class="check-icon">✓</div>
+          <div>
+            <div class="check-label">證 1 ｜ 駕駛員身分證原件</div>
+            <div class="check-sub">年滿 18 週歲，有效期 1 個月以上；非中國大陸公民可持護照或台灣居民來往大陸通行證</div>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <div class="check-icon">✓</div>
+          <div>
+            <div class="check-label">證 2 ｜ 本人駕駛證原件（正副本）</div>
+            <div class="check-sub">或「交管 12123」App 電子駕駛證；有效期 2 個月以上；多人駕駛時每人均需持有，他人駕照及影本均不適用</div>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <div class="check-icon">✓</div>
+          <div>
+            <div class="check-label">卡 ｜ 本人國內信用卡</div>
+            <div class="check-sub">用於支付押金；程信分 / 芝麻信用通過可享「押金雙免」；支援線上預授權，符合條件可無需帶實體卡</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 費用說明 -->
+    <div id="fees" class="section-heading reveal">
+      <h2>💰 費用說明</h2>
+      <span class="section-badge">透明定價</span>
+    </div>
+    <div class="info-box reveal">
+      <h3>💰 基本費用構成</h3>
+      <table class="info-table">
+        <tr><th>費用項目</th><th>說明</th></tr>
+        <tr><td>基本租車費</td><td>依租車天數計算的車輛租金，預訂頁面逐項顯示，無隱藏費用</td></tr>
+        <tr><td>基礎服務費</td><td>車輛已投保三者險和交強險的費用，依租期收費，保障基本行車安全</td></tr>
+        <tr><td>車行手續費</td><td>用於車輛清潔、保養、單據製作及人員服務等，依次收費</td></tr>
+        <tr><td>押金（可退）</td><td>取車時以信用卡預授權凍結，正常還車後 3–7 個工作日解凍退回</td></tr>
+      </table>
+      <div class="tip-pill">💡 價格透明可靠 · 預訂過程中可逐項核對每筆費用金額</div>
+    </div>
+
+    <!-- 保險選擇 -->
+    <div id="insurance" class="section-heading reveal">
+      <h2>🛡️ 保險選擇</h2>
+      <span class="section-badge">AXA 安盛保障</span>
+    </div>
+    <p class="reveal" style="font-size:13.5px;color:var(--text-secondary);margin-bottom:18px;line-height:1.75">
+      QEEQ 與全球頂級保險集團 <strong>AXA 安盛保險</strong> 合作，為旅客提供超越基礎保障的完整升級方案。以下為各險種詳細說明：
+    </p>
+    <div class="ins-grid reveal">
+      <div class="ins-card">
+        <div class="ins-card-header">
+          <div class="ins-name">三者險 ＋ 交強險</div>
+          <span class="ins-badge included">已包含</span>
+        </div>
+        <div class="ins-provider">📌 含於車輛基礎服務費中</div>
+        <div class="ins-desc">保障第三方人員傷亡及財產損失，依法強制投保。所有在 QEEQ 租用的車輛均已涵蓋，有起賠額門檻。</div>
+        <ul class="ins-list">
+          <li>第三方人身傷亡賠償</li>
+          <li>第三方財產損失賠償</li>
+          <li>標準版有起賠額門檻</li>
+        </ul>
+      </div>
+      <div class="ins-card">
+        <div class="ins-card-header">
+          <div class="ins-name">超額免責金保險（CDW）</div>
+          <span class="ins-badge optional">可加購</span>
+        </div>
+        <div class="ins-provider">🛡️ AXA 安盛承保</div>
+        <div class="ins-desc">車輛受損時，將您的自付額（Excess）降至零。碰撞、刮傷或玻璃破損，均可申請全額理賠，開車無後顧之憂。</div>
+        <ul class="ins-list">
+          <li>碰撞損失免責（CDW）</li>
+          <li>車窗玻璃損壞保障</li>
+          <li>車輪及底盤損壞保障</li>
+          <li>盜竊險（部分方案涵蓋）</li>
+        </ul>
+      </div>
+      <div class="ins-card">
+        <div class="ins-card-header">
+          <div class="ins-name">人身及財物險（PAI）</div>
+          <span class="ins-badge optional">可加購</span>
+        </div>
+        <div class="ins-provider">🛡️ AXA 安盛承保</div>
+        <div class="ins-desc">保障駕乘人員在行駛途中因意外導致的人身傷害，及隨車行李遺失或損壞的賠償，依租期天數計費。</div>
+        <ul class="ins-list">
+          <li>駕乘人員意外身故 / 傷殘</li>
+          <li>隨車行李及個人財物損失</li>
+          <li>醫療費用補償</li>
+        </ul>
+      </div>
+      <div class="ins-card">
+        <div class="ins-card-header">
+          <div class="ins-name">優享全保（Premium Cover）</div>
+          <span class="ins-badge premium">★ 新手首選</span>
+        </div>
+        <div class="ins-provider">🛡️ AXA 安盛承保 · 0 起賠額</div>
+        <div class="ins-desc">將三者險升級為 0 起賠額全險，並疊加 CDW 及 PAI，是新手或長途旅程最推薦的完整保障組合，出事幾乎全額理賠。</div>
+        <ul class="ins-list">
+          <li>三者險升級為 0 起賠額</li>
+          <li>完整 CDW 車損免責</li>
+          <li>人身 ＋ 行李雙重保障</li>
+          <li>24 小時道路救援協助</li>
+        </ul>
+      </div>
+    </div>
+    <div class="info-box reveal" style="margin-top:-24px">
+      <div class="tip-pill" style="margin-top:0">💡 新手強烈建議選擇「優享全保」，AXA 承保理賠效率有保證，萬一出狀況不必自行承擔高額費用</div>
+    </div>
+
+    <!-- 降價監測 -->
+    <div id="pricemonitor" class="section-heading reveal">
+      <h2>📉 QEEQ 獨家降價功能</h2>
+      <span class="section-badge">省更多</span>
+    </div>
+    <div class="price-monitor-box reveal">
+      <div class="pm-label">✨ QEEQ 業界唯一功能</div>
+      <div class="pm-title">價格監測 ＋ 自動降價重訂</div>
+      <div class="pm-sub">已完成預訂不等於鎖死最高價！QEEQ 系統 24 小時持續監測您所訂車輛的市場價格波動。一旦偵測到更低價格，立即主動通知您，協助取消舊訂單並以更優惠的價格重新預訂，確保您永遠拿到最低價。</div>
+      <div class="pm-steps">
+        <div class="pm-step">
+          <div class="pm-step-num">1</div>
+          <div class="pm-step-title">正常完成預訂</div>
+          <div class="pm-step-desc">在 QEEQ 選好車、付款確認，輕鬆完成第一步</div>
+        </div>
+        <div class="pm-step">
+          <div class="pm-step-num">2</div>
+          <div class="pm-step-title">系統 24h 監測</div>
+          <div class="pm-step-desc">後台自動追蹤同款車輛每日價格波動</div>
+        </div>
+        <div class="pm-step">
+          <div class="pm-step-num">3</div>
+          <div class="pm-step-title">降價即時通知</div>
+          <div class="pm-step-desc">偵測到更低價立即推播，附差價試算一目了然</div>
+        </div>
+        <div class="pm-step">
+          <div class="pm-step-num">4</div>
+          <div class="pm-step-title">一鍵重新預訂</div>
+          <div class="pm-step-desc">確認後自動取消舊單，以更低價重訂同款車</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 如何取車 -->
+    <div id="pickup" class="section-heading reveal">
+      <h2>🔑 如何取車</h2>
+      <span class="section-badge">2 步到手</span>
+    </div>
+    <div class="cards-grid">
+      <a class="card reveal" onclick="openModal('pick1')">
+        <div class="card-cover" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)">
+          <div class="card-cover-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="16" width="44" height="34" rx="5" fill="#ddd6fe"/><rect x="10" y="16" width="44" height="12" rx="5" fill="#a78bfa"/><rect x="22" y="36" width="20" height="8" rx="2" fill="#7c3aed"/><circle cx="32" cy="13" r="4" fill="#7c3aed"/></svg>
+          </div>
+          <span class="card-tag">門市取車</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">前往門市提車</div>
+          <div class="card-desc">憑訂單前往指定門市，出示兩證一卡，刷取押金後工作人員引導驗車，全程通常只需 15 分鐘即可完成。</div>
+          <div class="card-cta">了解更多 →</div>
+        </div>
+      </a>
+      <a class="card reveal" onclick="openModal('pick2')">
+        <div class="card-cover" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5)">
+          <div class="card-cover-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="24" width="52" height="24" rx="6" fill="#d1fae5"/><rect x="6" y="24" width="52" height="14" rx="6" fill="#6ee7b7"/><circle cx="16" cy="52" r="5" fill="#059669"/><circle cx="48" cy="52" r="5" fill="#059669"/><rect x="28" y="14" width="8" height="12" rx="2" fill="#059669"/><path d="M24 14l8-8 8 8" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="card-tag">送車上門</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">送車上門服務</div>
+          <div class="card-desc">工作人員將車輛送至您約定的地點（機場、飯店或住所），省時省力，特別適合攜帶大件行李的旅客。</div>
+          <div class="card-cta">了解更多 →</div>
+        </div>
+      </a>
+      <a class="card reveal" onclick="openModal('pick3')">
+        <div class="card-cover" style="background:linear-gradient(135deg,#fff7ed,#fed7aa)">
+          <div class="card-cover-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="16" width="40" height="32" rx="5" fill="#fed7aa"/><rect x="16" y="20" width="32" height="20" rx="3" fill="#fb923c"/><circle cx="32" cy="30" r="6" fill="#fff" opacity=".7"/><circle cx="32" cy="30" r="3" fill="#ea580c"/></svg>
+          </div>
+          <span class="card-tag">重要提示</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">取車務必拍照驗車</div>
+          <div class="card-desc">取車後立即拍攝車輛四面及既有損傷，照片自帶時間戳，是還車時最有力的自保證據，任何情況都不可省略！</div>
+          <div class="card-cta">了解更多 →</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 路上問題 -->
+    <div id="onroad" class="section-heading reveal">
+      <h2>🛣️ 路上問題處理</h2>
+      <span class="section-badge">全程支援</span>
+    </div>
+    <div class="cards-grid">
+      <a class="card reveal" onclick="openModal('road1')">
+        <div class="card-cover" style="background:linear-gradient(135deg,#fef2f2,#fecaca)">
+          <div class="card-cover-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="26" fill="#fecaca"/><path d="M22 32h6l4-8 4 16 4-8h6" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="card-tag">故障處理</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">車輛故障怎麼辦</div>
+          <div class="card-desc">靠邊停車、開啟雙閃，撥打車行道路救援電話，同步聯繫 QEEQ 中文客服全程協助，通常 30–60 分鐘救援到場。</div>
+          <div class="card-cta">了解更多 →</div>
+        </div>
+      </a>
+      <a class="card reveal" onclick="openModal('road2')">
+        <div class="card-cover" style="background:linear-gradient(135deg,#fff1f2,#ffe4e6)">
+          <div class="card-cover-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 10L8 52h48L32 10z" fill="#ffe4e6" stroke="#f43f5e" stroke-width="3" stroke-linejoin="round"/><line x1="32" y1="28" x2="32" y2="40" stroke="#f43f5e" stroke-width="3.5" stroke-linecap="round"/><circle cx="32" cy="46" r="2.5" fill="#f43f5e"/></svg>
+          </div>
+          <span class="card-tag">事故處理</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">發生交通事故</div>
+          <div class="card-desc">確保安全 → 撥打 110 → 拍攝現場 → 聯繫 QEEQ 客服啟動 AXA 理賠流程。有保險就別慌，按步驟處理即可。</div>
+          <div class="card-cta">了解更多 →</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- 如何還車 -->
+    <div id="return" class="section-heading reveal">
+      <h2>↩️ 如何還車</h2>
+      <span class="section-badge">順暢還車</span>
+    </div>
+    <div class="cards-grid">
+      <a class="card reveal" onclick="openModal('ret1')">
+        <div class="card-cover" style="background:linear-gradient(135deg,#f0fdf4,#bbf7d0)">
+          <div class="card-cover-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="10" width="24" height="40" rx="6" fill="#bbf7d0"/><rect x="26" y="42" width="12" height="5" rx="2" fill="#16a34a"/><ellipse cx="32" cy="28" rx="8" ry="10" fill="#4ade80"/><ellipse cx="32" cy="28" rx="4" ry="6" fill="#16a34a"/></svg>
+          </div>
+          <span class="card-tag">還車前</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">加滿油再還車</div>
+          <div class="card-desc">依取車時的油量歸還，否則車行會以遠高於市價的費率替您加油。還車前加滿油並保留收據，輕鬆省下這筆冤枉錢。</div>
+          <div class="card-cta">了解更多 →</div>
+        </div>
+      </a>
+      <a class="card reveal" onclick="openModal('ret2')">
+        <div class="card-cover" style="background:linear-gradient(135deg,#eff6ff,#bfdbfe)">
+          <div class="card-cover-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="24" stroke="#2563eb" stroke-width="3" fill="#bfdbfe"/><line x1="32" y1="14" x2="32" y2="32" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/><line x1="32" y1="32" x2="42" y2="38" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/></svg>
+          </div>
+          <span class="card-tag">時間注意</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">準時還車很重要</div>
+          <div class="card-desc">超時還車（通常超過 30 分鐘）將被額外收費，費率往往高於日租價。如需延期，請提前在 App 或聯繫門市申請。</div>
+          <div class="card-cta">了解更多 →</div>
+        </div>
+      </a>
+      <a class="card reveal" onclick="openModal('ret3')">
+        <div class="card-cover" style="background:linear-gradient(135deg,#f5f3ff,#ddd6fe)">
+          <div class="card-cover-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="10" width="40" height="46" rx="5" fill="#ddd6fe"/><polyline points="20,32 28,40 44,24" stroke="#7c3aed" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="20" y="18" width="24" height="2.5" rx="1.25" fill="#a78bfa"/></svg>
+          </div>
+          <span class="card-tag">還車時</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">當面檢查 &amp; 簽字</div>
+          <div class="card-desc">與工作人員一同確認車身狀況，核對油表與里程後簽署還車單，保留副本，押金將於數個工作日內退回至信用卡。</div>
+          <div class="card-cta">了解更多 →</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- QEEQ 保障 -->
+    <div id="service" class="section-heading reveal">
+      <h2>⭐ QEEQ 服務保障</h2>
+      <span class="section-badge">放心租</span>
+    </div>
+    <div class="info-box reveal">
+      <h3>⭐ QEEQ 核心服務承諾</h3>
+      <div class="checklist">
+        <div class="checklist-item">
+          <div class="check-icon">★</div>
+          <div>
+            <div class="check-label">豐富優質車源</div>
+            <div class="check-sub">全球 900+ 合作租車公司 · 千種車型 · 覆蓋 160+ 國家，天南地北任你行</div>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <div class="check-icon">★</div>
+          <div>
+            <div class="check-label">免費取消保障</div>
+            <div class="check-sub">大部分車行支援免費取消，行程臨時有變不擔心，退款原路返回</div>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <div class="check-icon">★</div>
+          <div>
+            <div class="check-label">獨家降價監測 ＋ 重訂</div>
+            <div class="check-sub">業界唯一功能：24h 監測已訂車輛價格，降價立即通知，協助重訂省更多</div>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <div class="check-icon">★</div>
+          <div>
+            <div class="check-label">AXA 安盛保險合作</div>
+            <div class="check-sub">與全球頂級保險集團合作，提供 CDW、PAI、優享全保等完整升級方案，理賠效率有保證</div>
+          </div>
+        </div>
+        <div class="checklist-item">
+          <div class="check-icon">★</div>
+          <div>
+            <div class="check-label">全程中文客服</div>
+            <div class="check-sub">預訂、取車、行程中、還車全流程，遇到問題隨時聯繫 QEEQ 中文客服協助</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新手貼士 - 時間軸 -->
+    <div id="tips" class="section-heading reveal">
+      <h2>💡 新手必讀小貼士</h2>
+      <span class="section-badge">時間軸</span>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-scene">📅 預訂前 3–7 天</div>
+        <div class="tl-title">選車 &amp; 比價階段</div>
+        <div class="tl-desc">依出行人數與行李量選擇合適車型：4–5 人出遊推薦 7 人座 SUV，城市通勤選經濟轎車即可省油費。提前 3–7 天預訂選擇最多、價格最優。預訂後開啟 QEEQ 降價監測，若有更低價系統自動通知，確保永遠買到最划算的方案！</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-scene">📅 出發前一天</div>
+        <div class="tl-title">行前準備清單</div>
+        <div class="tl-desc">確認「兩證一卡」齊全（身分證 ＋ 駕照 ＋ 信用卡），備妥取車確認信（截圖或印出均可）。規劃前往取車地點的路線，確認停車場 / 機場航廈位置，避免當天手忙腳亂。如需加購 AXA 升級保險，可在此時於 App 完成操作。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-scene">📅 取車當天</div>
+        <div class="tl-title">取車與驗車</div>
+        <div class="tl-desc">提前 15 分鐘抵達，避開高峰排隊時間。取車後立即拍攝車輛四個方向全景、儀表板油表及里程，照片帶時間戳存至手機相簿——這是您在還車時最有力的自保武器！確認既有損傷已由工作人員記錄在取車單上並簽名。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-scene">🚗 行駛途中</div>
+        <div class="tl-title">安全行駛注意事項</div>
+        <div class="tl-desc">嚴格遵守當地限速，超速罰款由駕駛自行承擔，保險不涵蓋違章行為。計畫跨省行駛須提前確認車行政策，部分車輛不允許跨省。道路救援電話及 QEEQ 客服號碼事先存入手機，萬一遇上狀況冷靜處理即可。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-scene">📅 還車前一天</div>
+        <div class="tl-title">還車準備</div>
+        <div class="tl-desc">確認還車時間與地點，預估堵車因素提前出發。在附近加油站加滿油（確認油種：汽油 / 柴油 / 電動），保留加油收據備查。徹底清點車內個人物品，清理垃圾。如需延期還車，此時聯繫門市或在 App 申請最為從容。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-scene">📅 還車當天</div>
+        <div class="tl-title">還車 &amp; 押金退還</div>
+        <div class="tl-desc">與工作人員當面核查車況，確認油量與里程，簽署還車單並保留副本。如有損傷爭議，立即拿出取車時拍攝的照片作為佐證，不必慌張。押金通常於 3–7 個工作日後解凍退回至信用卡，部分銀行可能略長，可聯繫客服查詢。</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>QEEQ 新手租車指南</h3>
+      <p>本站為 QEEQ 新手租車非官方參考指南，涵蓋預訂流程、必備證件、AXA 保險方案及 QEEQ 獨家降價監測功能，幫助初次租車用戶輕鬆出發。</p>
+      <div style="margin-top:14px;display:flex;gap:14px;flex-wrap:wrap">
+        <div style="font-size:12.5px;color:var(--text-secondary);display:flex;align-items:center;gap:5px">📧 help@qeeq.com</div>
+        <div style="font-size:12.5px;color:var(--text-secondary);display:flex;align-items:center;gap:5px">💬 線上客服 24hr</div>
+      </div>
+      <div class="footer-qr">📱</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:5px">掃碼下載 QEEQ App</div>
+    </div>
+    <div class="footer-col">
+      <h4>預訂車輛</h4>
+      <a href="#booking">如何預訂</a>
+      <a href="#documents">租車證件</a>
+      <a href="#fees">費用說明</a>
+      <a href="#insurance">保險選擇</a>
+    </div>
+    <div class="footer-col">
+      <h4>取車 / 還車</h4>
+      <a href="#pricemonitor">降價監測</a>
+      <a href="#pickup">如何取車</a>
+      <a href="#onroad">路上問題</a>
+      <a href="#return">如何還車</a>
+    </div>
+    <div class="footer-col">
+      <h4>相關連結</h4>
+      <a href="https://www.qeeq.com" target="_blank" rel="noopener">QEEQ 官網</a>
+      <a href="https://www.qeeq.com/car-rental" target="_blank" rel="noopener">立即租車</a>
+      <a href="https://tw.qeeq.com/best-car-rental/jp-license" target="_blank" rel="noopener">日本租車指南</a>
+      <a href="https://www.qeeq.com/help" target="_blank" rel="noopener">幫助中心</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 QEEQ 新手租車完全指南 · 僅供參考</span>
+    <span>內容參考 QEEQ 及 AXA 安盛官方說明</span>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal" id="modal-box">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-title"></div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+const modals = {
+  booking1:{title:'🔍 搜尋 & 篩選車輛',html:`<div class="modal-chip">第一步</div>
+    <h4>如何搜尋合適的車輛？</h4>
+    <p>在 QEEQ 首頁輸入取車地點、取車與還車時間，點擊搜尋即可同步比較全球 900+ 租車公司報價，一頁看清所有選擇。</p>
+    <h4>篩選技巧</h4>
+    <ul>
+      <li>依<strong>車型</strong>篩選：經濟型省油適合城市，SUV 適合家庭出遊或山路行駛</li>
+      <li>依<strong>價格</strong>排序：找到性價比最高的方案</li>
+      <li>關注<strong>用戶評分</strong>：優先選擇評分 4.5 以上的車行，體驗更有保障</li>
+      <li>確認<strong>免費取消</strong>標識：出行計畫有變更不怕</li>
+      <li>查看<strong>取車位置</strong>：機場櫃台 vs 非機場門市，根據需求選擇</li>
+    </ul>
+    <div class="tip-pill">💡 建議提前 3–7 天預訂，價格更優且選擇更豐富</div>`},
+  booking2:{title:'📝 填寫駕駛員資訊',html:`<div class="modal-chip">第二步</div>
+    <h4>需要填寫哪些資訊？</h4>
+    <ul>
+      <li>主駕駛員的<strong>姓名</strong>（需與身分證 / 護照完全一致）</li>
+      <li><strong>聯絡電話與電子信箱</strong>（用於接收確認信及取車提醒）</li>
+      <li><strong>駕照資訊</strong>（駕照號碼、類型、有效期）</li>
+    </ul>
+    <h4>多人駕駛</h4>
+    <p>若需多人輪流駕駛，預訂時或取車時申請「附加駕駛員」，每位駕駛員均需親自出示有效駕照，不可使用他人駕照替代。</p>
+    <div class="tip-pill">💡 資訊填寫須與實際證件完全一致，否則可能被拒絕取車</div>`},
+  booking3:{title:'✅ 送出訂單 & 確認',html:`<div class="modal-chip">第三步</div>
+    <h4>訂單送出後會發生什麼？</h4>
+    <p>付款完成後，系統立即發送確認信至您的電子信箱，包含取車憑證、車行地址、聯絡電話及注意事項。</p>
+    <h4>免費取消政策</h4>
+    <ul>
+      <li>大部分車行支援取車前 24–48 小時免費取消</li>
+      <li>部分特惠方案可能不支援取消，預訂前請確認</li>
+      <li>取消後款項原路退回，通常 3–7 個工作日到帳</li>
+    </ul>
+    <h4>QEEQ 降價重訂提醒</h4>
+    <p>完成預訂後，QEEQ 系統持續監測同款車輛價格。偵測到更低價格時主動通知您，一鍵協助重新預訂，省錢不費力！</p>
+    <div class="tip-pill">💡 建議下載 QEEQ App，隨時掌握訂單狀態及降價通知</div>`},
+  pick1:{title:'🏪 門市取車流程',html:`<div class="modal-chip">2 步完成</div>
+    <h4>步驟一：前往門市</h4>
+    <p>憑取車確認信或訂單號前往指定門市，找到 QEEQ 合作車行的服務櫃台（機場門市通常有明顯標示）。</p>
+    <h4>步驟二：出示證件 & 取車</h4>
+    <ul>
+      <li>出示身分證原件 ＋ 駕駛證原件</li>
+      <li>刷取押金（信用卡預授權或現金）</li>
+      <li>工作人員引導驗車，確認既有損傷後簽字取車</li>
+    </ul>
+    <div class="tip-pill">⚠️ 取車後立即拍攝車輛四面照片，這步驟非常關鍵！</div>`},
+  pick2:{title:'🚚 送車上門服務',html:`<div class="modal-chip">省時省力</div>
+    <h4>服務說明</h4>
+    <p>工作人員將車輛送至您約定的地點（機場、飯店或住所等），無需排隊前往門市，特別適合初次租車或攜帶大件行李的旅客。</p>
+    <h4>使用須知</h4>
+    <ul>
+      <li>預訂時選擇「送車上門」並填寫送達地址與時間</li>
+      <li>部分服務需額外支付配送費，預訂頁面會標示費用</li>
+      <li>送達前 30 分鐘與工作人員確認位置及抵達時間</li>
+    </ul>
+    <div class="tip-pill">💡 機場接機場景最適合，提行李出閘後直接取車出發</div>`},
+  pick3:{title:'📸 取車拍照指南',html:`<div class="modal-chip">不可省略的關鍵步驟</div>
+    <h4>為什麼一定要拍照？</h4>
+    <p>照片可以證明取車時車輛的原始狀態。萬一還車時被車行就既有損傷索賠，當時拍的照片就是您最有力的自保證據，務必執行！</p>
+    <h4>拍攝建議</h4>
+    <ul>
+      <li>拍攝車輛<strong>前、後、左、右</strong>四個方向全景照</li>
+      <li>重點拍攝既有刮痕、凹陷、輪圈磨損等部位特寫</li>
+      <li>拍攝儀表板的油表（確認初始油量）及里程表</li>
+      <li>照片自動帶有時間戳，存入手機相簿或雲端備份</li>
+    </ul>
+    <div class="tip-pill">💡 確認損傷已由工作人員記錄在取車單上並簽名確認</div>`},
+  road1:{title:'🔧 車輛故障處理',html:`<div class="modal-chip">保持冷靜，按步驟處理</div>
+    <h4>發生故障怎麼辦？</h4>
+    <ul>
+      <li>將車輛靠邊安全停放，立刻開啟雙閃警示燈</li>
+      <li>在車後方放置警示三角（車廂內通常備有）</li>
+      <li>撥打取車單上的<strong>道路救援電話</strong>，說明位置與故障情況</li>
+      <li>同步聯繫 <strong>QEEQ 中文客服</strong>，取得全程協助</li>
+      <li>拍攝故障現象照片留存，供後續理賠使用</li>
+    </ul>
+    <h4>常見故障情況</h4>
+    <p>爆胎、電瓶虧電、鑰匙鎖車內等，道路救援通常 30–60 分鐘內到場處理，靜待即可。</p>
+    <div class="tip-pill">💡 出發前將道路救援電話及 QEEQ 客服存入手機</div>`},
+  road2:{title:'⚠️ 交通事故處理',html:`<div class="modal-chip">第一時間按步驟處理</div>
+    <h4>事故處理步驟</h4>
+    <ul>
+      <li>確保車內人員安全，開啟雙閃，設置警示三角</li>
+      <li>撥打 <strong>110 報警</strong>，等待交警到場勘驗，切勿私下和解</li>
+      <li>拍攝現場照片（車輛位置、損傷、道路情況、對方車牌）</li>
+      <li>與對方交換聯絡方式及保險資訊</li>
+      <li>聯繫 <strong>QEEQ 客服</strong>，啟動 AXA 安盛理賠協助流程</li>
+    </ul>
+    <h4>保險理賠提醒</h4>
+    <p>若購買了 AXA CDW 或優享全保，絕大多數車損費用由保險承擔。保留事故現場照片及警察筆錄，作為理賠依據。</p>
+    <div class="tip-pill">⚠️ 未經交警確認前請勿移動車輛，保護現場</div>`},
+  ret1:{title:'⛽ 加油還車技巧',html:`<div class="modal-chip">省錢必知</div>
+    <h4>為什麼要加滿油再還？</h4>
+    <p>大多數車行要求以<strong>同等油量</strong>還車。若油量不足，車行會以遠高於市場的費率替您加油，通常是加油站的 1.5–2 倍，非常不划算。</p>
+    <h4>操作建議</h4>
+    <ul>
+      <li>還車前在附近加油站補滿燃油</li>
+      <li>確認燃油類型（汽油 / 柴油 / 電動）與車型完全一致</li>
+      <li>保留加油收據，還車時可出示證明</li>
+    </ul>
+    <div class="tip-pill">💡 取車時拍下油表，作為還車油量的基準參考</div>`},
+  ret2:{title:'🕐 準時還車須知',html:`<div class="modal-chip">時間就是金錢</div>
+    <h4>超時會怎樣？</h4>
+    <p>超時還車（通常超過 30 分鐘）將被收取額外費用，按小時或天數計算，費率通常高於日租價格，非常不合算。</p>
+    <h4>需要延期怎麼辦？</h4>
+    <ul>
+      <li>提前在 QEEQ App 中申請延長租期</li>
+      <li>直接聯繫門市工作人員確認是否可延期</li>
+      <li>若車輛已被下一位客戶預訂，可能無法延期</li>
+    </ul>
+    <div class="tip-pill">💡 建議在還車時間前 2 小時確認能否準時抵達</div>`},
+  ret3:{title:'📋 還車檢查流程',html:`<div class="modal-chip">當面確認最重要</div>
+    <h4>還車步驟</h4>
+    <ul>
+      <li>停放車輛至指定還車區域</li>
+      <li>與工作人員<strong>當面一起檢查</strong>車身，確認無新增損傷</li>
+      <li>核對油量、里程，與取車記錄逐項比對</li>
+      <li>簽署還車單，務必保留您的副本</li>
+      <li>押金通常於 3–7 個工作日內解凍退回信用卡</li>
+    </ul>
+    <h4>如有爭議</h4>
+    <p>若對損傷認定有爭議，立刻拿出取車時拍攝的照片作為佐證，並聯繫 QEEQ 客服協調處理，切勿在現場獨自爭執。</p>
+    <div class="tip-pill">💡 還車後拍攝停車位置照片，確認車輛已妥善歸還完成</div>`}
+};
+
+function openModal(key){
+  const d=modals[key];if(!d)return;
+  document.getElementById('modal-title').textContent=d.title;
+  document.getElementById('modal-body').innerHTML=d.html;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e){
+  if(e&&e.target!==document.getElementById('modal'))return;
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*55);
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const navLinks=document.querySelectorAll('.sidebar-nav a');
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(a=>a.classList.remove('active'));
+      const a=document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
+      if(a)a.classList.add('active');
+    }
+  });
+},{rootMargin:'-20% 0px -60% 0px'});
+document.querySelectorAll('[id]').forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
